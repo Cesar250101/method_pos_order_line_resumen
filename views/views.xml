@@ -1,0 +1,47 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="method_pos_order_line_resumen.list">
+      <field name="name">method_pos_order_line_resumen list</field>
+      <field name="model">pos.order.line</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="product_id"/>
+          <field name="qty"/>
+          <field name="state"/>
+          <field name="categ_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- model.name inherit search view -->
+<record id="view_id_method_pos_order_line_resumen_search" model="ir.ui.view">
+  <field name="name">Productos en Cola de Espera</field>
+  <field name="model">pos.order.line</field>
+  <field name="arch" type="xml">
+    <search string="Productos en Cola de Espera">
+        <filter name="EnEspera" string="En Espera"
+            domain="[('state', '=', 'waiting')]"/>
+      <group string="Group By">
+          <filter name="group_by_product" string="Producto"
+                  context="{'group_by': 'product_id'}"/>
+      </group>
+    </search>
+    
+  </field>
+</record>
+  
+  <act_window  id="method_pos_order_line_resumen_action"  
+        name="Listado de Productos en Cola"  
+        res_model="pos.order.line"
+  view_id="method_pos_order_line_resumen.list"
+        view_mode="tree" 
+  domain="[('state', '=', 'waiting')]" />
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="_menu_act_method_pos_order_line_resumen" name="Listado por Producto" parent="point_of_sale.menu_point_of_sale" action="method_pos_order_line_resumen_action" sequence=""/>
+
+
+  </data>
+</odoo>
