@@ -10,8 +10,9 @@
           <field name="product_id"/>
           <field name="qty"/>
           <field name="table_id"/>
+          <field name="date_order"/>
           <field name="state"/>
-          <field name="categ_id"/>
+          <field name="categ_id"/>          
         </tree>
       </field>
     </record>
