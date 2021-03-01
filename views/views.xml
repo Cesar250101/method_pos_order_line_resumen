@@ -5,7 +5,6 @@
     <record model="ir.ui.view" id="method_pos_order_line_resumen.list">
       <field name="name">method_pos_order_line_resumen list</field>
       <field name="model">pos.order.line</field>
-      <field name="auto_refresh">5000</field>
       <field name="arch" type="xml">
         <tree>
           <field name="product_id"/>
@@ -33,12 +32,13 @@
   </field>
 </record>
   
-  <act_window  id="method_pos_order_line_resumen_action"  
-        name="Listado de Productos en Cola"  
-        res_model="pos.order.line"
-  view_id="method_pos_order_line_resumen.list"
-        view_mode="tree" 
-  domain="[('state', '=', 'waiting')]" />
+  <act_window  id="method_pos_order_line_resumen_action" 
+    name="Listado de Productos en Cola" 
+    res_model="pos.order.line" 
+    auto_refresh="5000" 
+    view_id="method_pos_order_line_resumen.list" 
+    view_mode="tree" 
+    domain="[('state', '=', 'waiting')]" />
 
     <!-- This Menu Item must have a parent and an action -->
     <menuitem id="_menu_act_method_pos_order_line_resumen" name="Listado por Producto" parent="point_of_sale.menu_point_of_sale" action="method_pos_order_line_resumen_action" sequence=""/>
