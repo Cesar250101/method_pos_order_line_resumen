@@ -5,6 +5,7 @@
     <record model="ir.ui.view" id="method_pos_order_line_resumen.list">
       <field name="name">method_pos_order_line_resumen list</field>
       <field name="model">pos.order.line</field>
+      <field name="auto_refresh">5000</field>
       <field name="arch" type="xml">
         <tree>
           <field name="product_id"/>
